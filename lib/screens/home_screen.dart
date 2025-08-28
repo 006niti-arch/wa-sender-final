@@ -7,7 +7,6 @@ import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:whatsapp_sender/l10n/app_localizations_manual.dart';
 import 'package:whatsapp_sender/providers/locale_provider.dart';
 import 'package:whatsapp_sender/screens/campaign_history_screen.dart';
-import 'package:whatsapp_sender/screens/contacts_importer_screen.dart';
 import 'package:whatsapp_sender/screens/file_upload_screen.dart';
 import 'package:whatsapp_sender/screens/manual_input_screen.dart';
 import 'package:whatsapp_sender/screens/profile_screen.dart';
@@ -15,7 +14,7 @@ import 'package:whatsapp_sender/screens/settings_screen.dart';
 import 'package:whatsapp_sender/screens/unsubscribe_screen.dart';
 import 'package:whatsapp_sender/theme/app_theme.dart';
 
-// --- Helper class for our Leveling System ---
+// --- UserLevel class is correct and remains the same ---
 class UserLevel {
   final int level;
   final String title;
@@ -37,9 +36,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // This line makes the screen listen for language changes
     Provider.of<LocaleProvider>(context);
-
     final user = FirebaseAuth.instance.currentUser;
     if (user == null) return const Scaffold(body: Center(child: Text("Not logged in.")));
 
@@ -90,12 +87,6 @@ class HomeScreen extends StatelessWidget {
               _StatsGrid(totalCampaigns: totalCampaigns, totalMessages: totalMessages),
               const SizedBox(height: 24),
               _ActionCard(
-                icon: Icons.contact_phone_outlined,
-                title: AppLocalizationsManual.of(context).translate('homeImportContacts'),
-                subtitle: AppLocalizationsManual.of(context).translate('homeImportContactsSubtitle'),
-                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const ContactsImporterScreen())),
-              ),
-              _ActionCard(
                 icon: Icons.upload_file_outlined,
                 title: AppLocalizationsManual.of(context).translate('homeCreateFromFile'),
                 subtitle: AppLocalizationsManual.of(context).translate('homeCreateFromFileSubtitle'),
@@ -128,13 +119,11 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-// --- ALL HELPER WIDGETS ARE NOW INCLUDED ---
-
+// All helper widgets below are correct
 class _LevelProgressCard extends StatelessWidget {
   final User user;
   final UserLevel userLevel;
   final int totalMessages;
-
   const _LevelProgressCard({required this.user, required this.userLevel, required this.totalMessages});
 
   @override
@@ -179,7 +168,6 @@ class _LevelProgressCard extends StatelessWidget {
 class _StatsGrid extends StatelessWidget {
   final int totalCampaigns;
   final int totalMessages;
-
   const _StatsGrid({required this.totalCampaigns, required this.totalMessages});
 
   @override
@@ -203,7 +191,6 @@ class _StatCard extends StatelessWidget {
   final String title;
   final String value;
   final IconData icon;
-
   const _StatCard({required this.title, required this.value, required this.icon});
 
   @override
@@ -236,7 +223,6 @@ class _ActionCard extends StatelessWidget {
   final String subtitle;
   final VoidCallback onTap;
   final Color? iconColor;
-
   const _ActionCard({required this.icon, required this.title, required this.subtitle, required this.onTap, this.iconColor});
 
   @override
