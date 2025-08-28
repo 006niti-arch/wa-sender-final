@@ -52,6 +52,8 @@ flutter:
   assets:
     - assets/l10n/
     - assets/google_logo.png
+    - assets/icons/icon.png # Make sure this line exists
+
 
 # pubspec.yaml
 
@@ -60,7 +62,7 @@ flutter:
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "assets/icons/logo.png"    
+  image_path: "assets/icons/icon.png"    
 
 # pubspec.yaml
 
@@ -79,5 +81,5 @@ flutter_native_splash:
 
   # This tells the splash screen how to behave on Android and iOS
   android_12:
-    color: "#121212"
+    color: "#25D366"
     image: assets/icons/icon.png  
