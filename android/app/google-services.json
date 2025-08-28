@@ -31,10 +31,10 @@
               "client_type": 3
             },
             {
-              "client_id": "372096838354-cr6qtn052vmif1ar8ina5sovp965f1j8.apps.googleusercontent.com",
+              "client_id": "372096838354-0pt9lj7jv4nnj02sgdid12g31fvhfo3p.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.whatsappSender"
+                "bundle_id": "com.example.waSenderPro"
               }
             }
           ]
@@ -75,10 +75,10 @@
               "client_type": 3
             },
             {
-              "client_id": "372096838354-cr6qtn052vmif1ar8ina5sovp965f1j8.apps.googleusercontent.com",
+              "client_id": "372096838354-0pt9lj7jv4nnj02sgdid12g31fvhfo3p.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.whatsappSender"
+                "bundle_id": "com.example.waSenderPro"
               }
             }
           ]
@@ -111,10 +111,10 @@
               "client_type": 3
             },
             {
-              "client_id": "372096838354-cr6qtn052vmif1ar8ina5sovp965f1j8.apps.googleusercontent.com",
+              "client_id": "372096838354-0pt9lj7jv4nnj02sgdid12g31fvhfo3p.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.whatsappSender"
+                "bundle_id": "com.example.waSenderPro"
               }
             }
           ]

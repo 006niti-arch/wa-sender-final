@@ -42,12 +42,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyCOr-JlxhmpNEg4tD0LjXjjWC1aB2hv5H8',
-    appId: '1:372096838354:web:c77a5ab1cc24cffc6fdb0b',
+    appId: '1:372096838354:web:37cfec8e1d1d8bf66fdb0b',
     messagingSenderId: '372096838354',
     projectId: 'whatsapp-sender-app-799b5',
     authDomain: 'whatsapp-sender-app-799b5.firebaseapp.com',
     storageBucket: 'whatsapp-sender-app-799b5.firebasestorage.app',
-    measurementId: 'G-LJ1HEBPKSJ',
+    measurementId: 'G-9XSBYXYEHD',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
@@ -82,12 +82,12 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions windows = FirebaseOptions(
     apiKey: 'AIzaSyCOr-JlxhmpNEg4tD0LjXjjWC1aB2hv5H8',
-    appId: '1:372096838354:web:37cfec8e1d1d8bf66fdb0b',
+    appId: '1:372096838354:web:5c1c14c850b7d3346fdb0b',
     messagingSenderId: '372096838354',
     projectId: 'whatsapp-sender-app-799b5',
     authDomain: 'whatsapp-sender-app-799b5.firebaseapp.com',
     storageBucket: 'whatsapp-sender-app-799b5.firebasestorage.app',
-    measurementId: 'G-9XSBYXYEHD',
+    measurementId: 'G-82FPPM71RW',
   );
 
 }

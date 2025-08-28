@@ -1,7 +1,7 @@
 // lib/screens/campaign_status_screen.dart
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:whatsapp_sender/providers/campaign_provider.dart';
+import 'package:wa_sender_pro/providers/campaign_provider.dart';
 
 class CampaignStatusScreen extends StatefulWidget {
   const CampaignStatusScreen({super.key});

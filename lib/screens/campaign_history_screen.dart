@@ -8,7 +8,7 @@ import 'package:csv/csv.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:whatsapp_sender/screens/edit_campaign_screen.dart';
+import 'package:wa_sender_pro/screens/edit_campaign_screen.dart';
 
 class CampaignHistoryScreen extends StatefulWidget {
   const CampaignHistoryScreen({super.key});

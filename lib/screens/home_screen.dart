@@ -4,17 +4,18 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
-import 'package:whatsapp_sender/l10n/app_localizations_manual.dart';
-import 'package:whatsapp_sender/providers/locale_provider.dart';
-import 'package:whatsapp_sender/screens/campaign_history_screen.dart';
-import 'package:whatsapp_sender/screens/file_upload_screen.dart';
-import 'package:whatsapp_sender/screens/manual_input_screen.dart';
-import 'package:whatsapp_sender/screens/profile_screen.dart';
-import 'package:whatsapp_sender/screens/settings_screen.dart';
-import 'package:whatsapp_sender/screens/unsubscribe_screen.dart';
-import 'package:whatsapp_sender/theme/app_theme.dart';
+import 'package:wa_sender_pro/l10n/app_localizations_manual.dart';
+import 'package:wa_sender_pro/providers/locale_provider.dart';
+import 'package:wa_sender_pro/screens/campaign_history_screen.dart';
+import 'package:wa_sender_pro/screens/contacts_importer_screen.dart';
+import 'package:wa_sender_pro/screens/file_upload_screen.dart';
+import 'package:wa_sender_pro/screens/manual_input_screen.dart';
+import 'package:wa_sender_pro/screens/profile_screen.dart';
+import 'package:wa_sender_pro/screens/settings_screen.dart';
+import 'package:wa_sender_pro/screens/unsubscribe_screen.dart';
+import 'package:wa_sender_pro/theme/app_theme.dart';
 
-// --- UserLevel class is correct and remains the same ---
+// --- Helper class for our Leveling System ---
 class UserLevel {
   final int level;
   final String title;
@@ -87,6 +88,12 @@ class HomeScreen extends StatelessWidget {
               _StatsGrid(totalCampaigns: totalCampaigns, totalMessages: totalMessages),
               const SizedBox(height: 24),
               _ActionCard(
+                icon: Icons.contact_phone_outlined,
+                title: AppLocalizationsManual.of(context).translate('homeImportContacts'),
+                subtitle: AppLocalizationsManual.of(context).translate('homeImportContactsSubtitle'),
+                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const ContactsImporterScreen())),
+              ),
+              _ActionCard(
                 icon: Icons.upload_file_outlined,
                 title: AppLocalizationsManual.of(context).translate('homeCreateFromFile'),
                 subtitle: AppLocalizationsManual.of(context).translate('homeCreateFromFileSubtitle'),
@@ -119,7 +126,6 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-// All helper widgets below are correct
 class _LevelProgressCard extends StatelessWidget {
   final User user;
   final UserLevel userLevel;

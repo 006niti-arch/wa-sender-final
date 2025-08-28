@@ -2,9 +2,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:whatsapp_sender/screens/generic_info_screen.dart';
-import 'package:whatsapp_sender/screens/home_screen.dart';
-import 'package:whatsapp_sender/screens/login_screen.dart';
+import 'package:wa_sender_pro/screens/generic_info_screen.dart';
+import 'package:wa_sender_pro/screens/home_screen.dart';
+import 'package:wa_sender_pro/screens/login_screen.dart';
 
 class AuthGate extends StatelessWidget {
   const AuthGate({super.key});

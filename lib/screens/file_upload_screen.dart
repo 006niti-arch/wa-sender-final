@@ -4,8 +4,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:whatsapp_sender/providers/campaign_provider.dart';
-import 'package:whatsapp_sender/screens/campaign_status_screen.dart';
+import 'package:wa_sender_pro/providers/campaign_provider.dart';
+import 'package:wa_sender_pro/screens/campaign_status_screen.dart';
 import 'package:csv/csv.dart';
 import 'package:excel/excel.dart';
 

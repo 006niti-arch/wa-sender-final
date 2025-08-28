@@ -3,8 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:whatsapp_sender/l10n/app_localizations_manual.dart';
-import 'package:whatsapp_sender/theme/app_theme.dart';
+import 'package:wa_sender_pro/l10n/app_localizations_manual.dart';
+import 'package:wa_sender_pro/theme/app_theme.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

@@ -1,9 +1,7 @@
 // lib/screens/contacts_importer_screen.dart
-import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/material.dart';
-import 'package:permission_handler/permission_handler.dart';
-import 'package:whatsapp_sender/screens/manual_input_screen.dart';
-import 'package:whatsapp_sender/theme/app_theme.dart';
+import 'package:flutter_contacts/flutter_contacts.dart';
+import 'package:wa_sender_pro/screens/manual_input_screen.dart';
 
 class ContactsImporterScreen extends StatefulWidget {
   const ContactsImporterScreen({super.key});
@@ -13,31 +11,33 @@ class ContactsImporterScreen extends StatefulWidget {
 }
 
 class _ContactsImporterScreenState extends State<ContactsImporterScreen> {
-  List<Contact> _contacts = [];
-  List<Contact> _selectedContacts = [];
+  List<Contact>? _contacts;
+  final List<Contact> _selectedContacts = [];
   bool _isLoading = true;
   String _statusMessage = 'Loading contacts...';
 
   @override
   void initState() {
     super.initState();
-    _getContacts();
+    _fetchContacts();
   }
 
-  Future<void> _getContacts() async {
-    final status = await Permission.contacts.request();
-    if (status.isGranted) {
-      final contacts = await ContactsService.getContacts(withThumbnails: false);
+  Future<void> _fetchContacts() async {
+    // First, ask for permission
+    if (!await FlutterContacts.requestPermission()) {
       setState(() {
-        _contacts = contacts;
         _isLoading = false;
-      });
-    } else {
-      setState(() {
         _statusMessage = 'Permission denied. Please enable contacts permission in your phone settings.';
-        _isLoading = false;
       });
+      return;
     }
+    
+    // If permission is granted, fetch the contacts
+    final contacts = await FlutterContacts.getContacts(withProperties: true); // withProperties is needed to get phone numbers
+    setState(() {
+      _contacts = contacts;
+      _isLoading = false;
+    });
   }
 
   @override
@@ -46,17 +46,15 @@ class _ContactsImporterScreenState extends State<ContactsImporterScreen> {
       appBar: AppBar(
         title: const Text('Import from Contacts'),
         actions: [
-          // Show the 'Next' button only if contacts are selected
           if (_selectedContacts.isNotEmpty)
             TextButton(
               onPressed: () {
                 final selectedNumbers = _selectedContacts
-                    .map((c) => c.phones?.first.value) // Get the first phone number
-                    .where((p) => p != null) // Filter out any nulls
+                    .map((c) => c.phones.isNotEmpty ? c.phones.first.number : null)
+                    .where((p) => p != null)
                     .cast<String>()
                     .toList();
 
-                // Navigate to the manual input screen, pre-filling the numbers
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
@@ -72,14 +70,13 @@ class _ContactsImporterScreenState extends State<ContactsImporterScreen> {
       ),
       body: _isLoading
           ? Center(child: Column(mainAxisSize: MainAxisSize.min, children: [const CircularProgressIndicator(), const SizedBox(height: 16), Text(_statusMessage)]))
-          : _contacts.isEmpty
+          : _contacts == null || _contacts!.isEmpty
               ? Center(child: Text(_statusMessage))
               : ListView.builder(
-                  itemCount: _contacts.length,
+                  itemCount: _contacts!.length,
                   itemBuilder: (context, index) {
-                    final contact = _contacts[index];
-                    // Only show contacts that have at least one phone number
-                    if (contact.phones == null || contact.phones!.isEmpty) {
+                    final contact = _contacts![index];
+                    if (contact.phones.isEmpty) {
                       return const SizedBox.shrink();
                     }
                     final isSelected = _selectedContacts.contains(contact);
@@ -96,8 +93,8 @@ class _ContactsImporterScreenState extends State<ContactsImporterScreen> {
                           });
                         },
                       ),
-                      title: Text(contact.displayName ?? 'No Name'),
-                      subtitle: Text(contact.phones!.first.value ?? 'No number'),
+                      title: Text(contact.displayName),
+                      subtitle: Text(contact.phones.first.number),
                     );
                   },
                 ),

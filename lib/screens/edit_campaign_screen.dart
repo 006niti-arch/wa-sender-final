@@ -1,8 +1,8 @@
 // lib/screens/edit_campaign_screen.dart
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:whatsapp_sender/providers/campaign_provider.dart';
-import 'package:whatsapp_sender/screens/campaign_status_screen.dart';
+import 'package:wa_sender_pro/providers/campaign_provider.dart';
+import 'package:wa_sender_pro/screens/campaign_status_screen.dart';
 
 class EditCampaignScreen extends StatefulWidget {
   final String campaignName;

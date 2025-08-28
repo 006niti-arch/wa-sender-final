@@ -1,6 +1,6 @@
 // lib/screens/pricing_screen.dart
 import 'package:flutter/material.dart';
-import 'package:whatsapp_sender/theme/app_theme.dart';
+import 'package:wa_sender_pro/theme/app_theme.dart';
 
 class PricingScreen extends StatelessWidget {
   const PricingScreen({super.key});

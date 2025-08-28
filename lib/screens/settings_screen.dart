@@ -2,11 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:whatsapp_sender/providers/locale_provider.dart';
-import 'package:whatsapp_sender/screens/faq_screen.dart';
-import 'package:whatsapp_sender/screens/generic_info_screen.dart';
-import 'package:whatsapp_sender/screens/pricing_screen.dart';
-import 'package:whatsapp_sender/screens/profile_screen.dart';
+import 'package:wa_sender_pro/providers/locale_provider.dart';
+import 'package:wa_sender_pro/screens/faq_screen.dart';
+import 'package:wa_sender_pro/screens/generic_info_screen.dart';
+import 'package:wa_sender_pro/screens/pricing_screen.dart';
+import 'package:wa_sender_pro/screens/profile_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});

@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:country_code_picker/country_code_picker.dart';
-import 'package:whatsapp_sender/providers/campaign_provider.dart';
-import 'package:whatsapp_sender/screens/campaign_status_screen.dart';
+import 'package:wa_sender_pro/providers/campaign_provider.dart';
+import 'package:wa_sender_pro/screens/campaign_status_screen.dart';
 
 class ManualInputScreen extends StatefulWidget {
   final String? initialCampaignName;
