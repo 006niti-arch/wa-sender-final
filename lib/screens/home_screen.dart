@@ -7,7 +7,6 @@ import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:wa_sender_pro/l10n/app_localizations_manual.dart';
 import 'package:wa_sender_pro/providers/locale_provider.dart';
 import 'package:wa_sender_pro/screens/campaign_history_screen.dart';
-import 'package:wa_sender_pro/screens/contacts_importer_screen.dart';
 import 'package:wa_sender_pro/screens/file_upload_screen.dart';
 import 'package:wa_sender_pro/screens/manual_input_screen.dart';
 import 'package:wa_sender_pro/screens/profile_screen.dart';
@@ -87,12 +86,7 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(height: 16),
               _StatsGrid(totalCampaigns: totalCampaigns, totalMessages: totalMessages),
               const SizedBox(height: 24),
-              _ActionCard(
-                icon: Icons.contact_phone_outlined,
-                title: AppLocalizationsManual.of(context).translate('homeImportContacts'),
-                subtitle: AppLocalizationsManual.of(context).translate('homeImportContactsSubtitle'),
-                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const ContactsImporterScreen())),
-              ),
+              // The "Import from Contacts" button has been permanently removed
               _ActionCard(
                 icon: Icons.upload_file_outlined,
                 title: AppLocalizationsManual.of(context).translate('homeCreateFromFile'),
