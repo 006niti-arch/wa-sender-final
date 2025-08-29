@@ -1,17 +1,5 @@
 // android/settings.gradle.kts
 pluginManagement {
-    val flutterSdkPath = run {
-        val properties = java.util.Properties()
-        // This path is for the cloud build environment and is correct.
-        file("../local.properties").inputStream().use { properties.load(it) }
-        val flutterSdkPath = properties.getProperty("flutter.sdk")
-        require(flutterSdkPath != null) { "flutter.sdk not set in local.properties" }
-        flutterSdkPath
-    }
-
-    // THIS IS THE CRITICAL LINE THAT WAS MISSING
-    includeBuild("$flutterSdkPath/packages/flutter_tools/gradle")
-
     repositories {
         google()
         mavenCentral()
