@@ -1,0 +1,26 @@
+// Reads flutter.sdk from local.properties and wires up the Flutter Gradle plugin build.
+pluginManagement {
+    val flutterSdkPath = run {
+        val p = java.util.Properties()
+        file("local.properties").inputStream().use { p.load(it) }
+        p.getProperty("flutter.sdk") ?: throw GradleException("flutter.sdk not set in local.properties")
+    }
+    includeBuild("$flutterSdkPath/packages/flutter_tools/gradle")
+
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = "whatsapp_sender"
+include(":app")
